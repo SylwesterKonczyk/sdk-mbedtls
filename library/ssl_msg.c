@@ -527,12 +527,10 @@ static void ssl_extract_add_data_from_record( unsigned char* add_data,
 #if defined(MBEDTLS_SSL_PROTO_TLS1_3)
     if( minor_ver == MBEDTLS_SSL_MINOR_VERSION_4 )
     {
-#if defined(MBEDTLS_SSL_DTLS_CONNECTION_ID)
         /* In TLS 1.3, the AAD contains the length of the TLSCiphertext,
          * which differs from the length of the TLSInnerPlaintext
          * by the length of the authentication tag. */
         ad_len_field += taglen;
-#endif /* MBEDTLS_SSL_DTLS_CONNECTION_ID */
     }
     else
 #endif /* MBEDTLS_SSL_PROTO_TLS1_3 */
